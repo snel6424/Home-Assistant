@@ -1,0 +1,16 @@
+- platform: workday
+  country: US
+  workdays: [mon, tue, wed, thu, fri]
+
+
+- platform: template
+  sensors:
+    sun_window:
+      friendly_name: "Sun Window"
+      value_template: "{% set elevation=state_attr('sun.sun','elevation') %}
+      {% set azimuth=state_attr('sun.sun','azimuth') %}
+      {% if azimuth > 90 and azimuth < 180 and elevation > 40 and elevation < 60 %}
+      true
+      {% else %}
+      false
+      {% endif %}"

@@ -1,0 +1,55 @@
+# bedroom_speakers:
+#   name: Auto Toggle Bedroom Speakers
+#   initial: on
+#   icon: mdi:speaker
+  
+# under_bar_led:
+#   name: Auto Toggle Bar LEDs at Night
+#   icon: mdi:led-outline
+  
+# morning_commute:
+#   name: Toggle Morning Commute Sensor
+#   icon: mdi:map-marker-distance
+  
+# sunrise_sunset:
+#   name: Sunrise/Sunset
+#   icon: mdi:weather-sunset
+  
+# guest_mode:
+#   name: Guest Mode
+#   icon: mdi:account-multiple
+
+# vacation_mode:
+#   name: Vacation Mode
+#   icon: mdi:wallet-travel
+  
+# front_door_light:
+#   name: Auto Toggle Entryway Light
+#   icon: mdi:ceiling-light
+  
+# morning_entry_light:
+#   name: "Turn on Entryway Light at 6:35"
+#   icon: mdi:ceiling-light
+  
+# front_porch_light:
+#   name: Auto Toggle Front Porch Light
+#   icon: mdi:coach-lamp
+  
+# coffee_pot:
+#   name: Coffee Pot Automation
+#   icon: mdi:coffee-maker
+  
+# coffee_pot_allow:
+#   name: Allow Coffee Pot Automation
+#   icon: mdi:coffee-maker
+
+# dark_mode:
+#   name: Dark mode
+#   icon: mdi:theme-light-dark
+  
+# theme_alternative:
+#   name: Theme Alternative
+  
+# automatic_backup:
+#   name: Automatic Backup
+#   icon: mdi:folder-sync-outline

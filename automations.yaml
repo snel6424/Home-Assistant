@@ -1,0 +1,94 @@
+- id: update_available_notifications
+  alias: Update Available Notifications
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.updater
+  action:
+  - service: persistent_notification.create
+    data:
+      message: There is a new Home Assistant update available.
+      title: Update Available
+  mode: single
+- alias: HACS Update Pending
+  trigger:
+    platform: state
+    entity_id: sensor.hacs
+  condition:
+  - condition: template
+    value_template: '{{ states(trigger.entity_id) != ''unknown''}}'
+  - condition: template
+    value_template: '{{ (states(trigger.entity_id) | float) != 0}}'
+  action:
+    service: persistent_notification.create
+    data_template:
+      title: Updates pending in HACS
+      message: "{% for repo in state_attr(trigger.entity_id, 'repositories') %}\n\
+        \  **{{ repo.display_name }}** _{{ repo[\"installed version\"] }}_ -> _{{\
+        \ repo[\"available version\"] }}_\n{% endfor %}"
+  id: d85e01e089014f2b8182104c91c218cd
+- id: '1600966547693'
+  alias: Turn on Coffee Pot
+  description: Turns on the Coffee Pot switch at a input_datetime specified time
+  trigger:
+  - platform: time
+    at: input_datetime.coffee_time
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.coffee_pot
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.coffee_pot_allow
+      state: 'on'
+  action:
+  - type: turn_on
+    device_id: 68e4fd6bfcab426da3b0b0b93dd0cba8
+    entity_id: switch.coffee_pot
+    domain: switch
+  mode: single
+- id: '1620310475055'
+  alias: ZHA Keypad
+  description: ZHA Alarm Keypad Test
+  trigger:
+  - platform: event
+    event_type: zha_event
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ payload.event.args.arm_mode_description == "armed_away"
+          }}'
+      sequence:
+      - service: alarm_control_panel.alarm_arm_away
+        target:
+          entity_id: alarm_control_panel.house
+    - conditions:
+      - condition: template
+        value_template: '{{ payload.event.args.arm_mode_description == "armed_night"
+          }}'
+      sequence:
+      - service: alarm_control_panel.alarm_arm_night
+        target:
+          entity_id: alarm_control_panel.house
+    - conditions:
+      - condition: template
+        value_template: '{{ payload.event.args.arm_mode_description == "armed_home"
+          }}'
+      sequence:
+      - service: alarm_control_panel.alarm_arm_home
+        target:
+          entity_id: alarm_control_panel.house
+    - conditions:
+      - condition: template
+        value_template: '{{ payload.event.args.arm_mode_description == "disarmed"
+          }}'
+      sequence:
+      - service: alarm_control_panel.alarm_disarm
+        target:
+          entity_id: alarm_control_panel.house
+        data:
+          code: '1021'
+    default: []
+  mode: single

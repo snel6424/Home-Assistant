@@ -1,0 +1,9 @@
+- platform: nmap_tracker
+  hosts:
+    - 192.168.10.31
+    - 192.168.10.32
+
+- platform: ping
+  hosts:
+    colton_phone_ping: 192.168.10.31
+    vanessa_phone_ping: 192.168.10.32

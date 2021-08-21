@@ -1,0 +1,25 @@
+family:
+  name: Family Members
+  entities:
+    - person.colton
+    - person.vanessa
+    
+doors_windows:
+  name: Doors & Windows
+  entities:
+    - binary_sensor.front_door
+    - binary_sensor.back_door
+      
+# test_group:
+#   name: Test Group
+#   entities:
+#     - light.living_room_lights
+#     - light.bedroom_lights
+    
+all_google_homes:
+  name: All Google Homes
+  entities:
+    - media_player.living_room_google_home
+    - media_player.kitchen_google_home
+    - media_player.bathroom_google_home
+    

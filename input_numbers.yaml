@@ -1,0 +1,15 @@
+# coffee_hour:
+#   name: Hour
+#   icon: mdi:clock-outline
+#   # initial: 6
+#   min: 0
+#   max: 23
+#   step: 1
+  
+# coffee_minutes:
+#   name: Minutes
+#   icon: mdi:clock-outline
+#   # initial: 15
+#   min: 0
+#   max: 59
+#   step: 5

@@ -1,0 +1,103 @@
+homeassistant:
+  customize: !include customize.yaml
+  packages: !include_dir_named packages
+
+##############################################################################################
+
+default_config: # Configure a default setup of Home Assistant (frontend, api, etc)
+discovery: # Enables automatic discovery of devices
+cloud:
+system_health:
+http:
+tts: # Text to speech
+  - platform: google_translate
+    service_name: google_say
+    base_url: !secret tts_base_url
+
+frontend:
+  themes: !include_dir_merge_named themes
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+sensor: !include sensors.yaml
+input_boolean: !include input_booleans.yaml
+input_select: !include input_selects.yaml
+zone: !include zones.yaml
+light: !include lights.yaml
+device_tracker: !include device_trackers.yaml
+binary_sensor: !include binary_sensors.yaml
+timer: !include timers.yaml
+input_number: !include input_numbers.yaml
+switch: !include switches.yaml
+scene: !include scenes.yaml
+proximity: !include proximity.yaml
+rest_command: !include rest_commands.yaml
+
+##############################################################################################
+
+logbook:
+  exclude:
+    entities:
+      - sensor.cpu_temperature
+      - sensor.time
+      - sun.sun
+      - sensor.daylight
+      - sensor.date_time
+      - sensor.date
+      - sensor.time
+      - sensor.yr_symbol
+      - sensor.disk_space
+      - sensor.supervisor_updates
+      - device_tracker.colton_phone
+      - device_tracker.vanessa_phone
+      - device_tracker.unifi_vanessa_phone
+      - device_tracker.unifi_colton_phone
+      - device_tracker.62_35_ef_39_67_8b
+      - device_tracker.9a_cf_a4_44_7c_1f
+      - group.doors_windows
+      - group.all_google_homes
+      - light.zigbee_bulb_1
+      - light.zigbee_bulb_2
+      - light.zigbee_bulb_3
+      - light.zigbee_bulb_4
+      - light.zigbee_bulb_5
+      - sensor.hvac_status
+      - sensor.work_select_address
+      - sensor.updater_addons
+      - binary_sensor.updater
+      - group.family
+      - input_boolean.sunrise_sunset
+      - sensor.zigbee_devices
+      - input_boolean.empty_house
+      - timer.coffee_pot
+      - switch.esphome_switch_1
+    entity_globs:
+      - sensor.count_*
+      - sensor.coltons_macbook*
+      - sensor.colton_phone_*
+      - sensor.coltons_phone_*
+      - sensor.vanessa_phone_*
+      - sensor.vanessas_phone_*
+      - sensor.zigbee_button*
+      - device_tracker.vanessa_s*
+      - switch.nodered_*
+      - light.led_controller*
+      - binary_sensor.coltons_macbook*
+      - media_player.*google_home
+    domains:
+      - media_player
+      - weather
+      - script
+
+##############################################################################################
+
+zha:
+  device_config:
+    08:6b:d7:ff:fe:6e:5e:fb-1: # format: {ieee}-{endpoint_id}
+      type: "switch"
+    84:fd:27:ff:fe:7d:48:21-1:
+      type: "switch"
+
+google:
+  client_id: !secret google_calendar_id
+  client_secret: !secret google_calendar_secret
