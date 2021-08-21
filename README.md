@@ -7,6 +7,7 @@ Everything On this Repository is Under Construction as long as this Message is h
 
 # Integrations
 Adaptive Lighting
+
 AdGuard Home
 Alarmo
 ESPHome
