@@ -6,4 +6,25 @@ Everything On this Repository is Under Construction as long as this Message is h
 # My Devices
 
 # Integrations
+Adaptive Lighting
+AdGuard Home
+Alarmo
+ESPHome
+Google Cast
+HACS
+NWS
+Node-RED
+Raspberry Pi Power Supply Checker
+Scheduler
+Unifi
+Waze Travel Time
+ZHA
 
+# Add-Ons
+AdGuard Home
+AirCast
+ESPHome
+Node-RED
+Samba Share
+Visual Studio Code
+Terminal & SSH
